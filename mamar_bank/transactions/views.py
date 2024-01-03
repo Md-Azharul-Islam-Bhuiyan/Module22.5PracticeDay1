@@ -229,8 +229,9 @@ class TransferBalanceView(LoginRequiredMixin,FormView):
                 return redirect('balance_transfer')
         except UserBankAccount.DoesNotExist:
             messages.error(self.request, 'Your given acc no does not exist')
+            return redirect('balance_transfer')
 
             
-        return super().form_valid(form)
+        # return super().form_valid(form)
     
 
